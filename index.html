@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Recensement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style de la bannière */
+        .banner {
+            background-color: #0066cc;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            margin: 20px;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-size: 1.1em;
+        }
+
+        input, select, textarea {
+            padding: 10px;
+            font-size: 1em;
+            width: 100%;
+            max-width: 500px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+        }
+
+        .message {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            color: green;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .form-container {
+                margin: 10px;
+            }
+            form {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bannière avec les titres et sous-titres -->
+    <div class="banner">
+        <h1>Formulaire de Recensement</h1>
+        <h2>COMITÉ POUR L’ÉPANOUISSEMENT ACADÉMIQUE</h2>
+        <h3>BUREAU DES ETUDIANTS IITG</h3>
+        <h3>Bureau Communication et Événementielle</h3>
+        <h3>BEBONA Fanel & EDOU BIBANG Brunel</h3>
+    </div>
+
+    <!-- Formulaire -->
+    <div class="form-container">
+        <form id="form">
+            <h2>Informations de l'Étudiant</h2>
+
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required>
+            <p id="prenomMessage"></p>
+
+            <label for="dateNaissance">Date et lieu de naissance :</label>
+            <input type="text" id="dateNaissance" name="dateNaissance" required>
+
+            <label for="nationalite">Nationalité :</label>
+            <input type="text" id="nationalite" name="nationalite" required>
+
+            <label for="boursier">Boursier :</label>
+            <select id="boursier" name="boursier" required>
+                <option value="oui">Oui</option>
+                <option value="non">Non</option>
+            </select>
+
+            <label for="classe">Classe :</label>
+            <select id="classe" name="classe" required>
+                <option value="Licence 1">Licence 1</option>
+                <option value="Licence 2">Licence 2</option>
+                <option value="Licence 3">Licence 3</option>
+                <option value="Master 1">Master 1</option>
+                <option value="Master 2">Master 2</option>
+            </select>
+            <p id="classeMessage"></p>
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telephone">Numéro de téléphone :</label>
+            <input type="tel" id="telephone" name="telephone" required>
+
+            <label for="adresse">Adresse :</label>
+            <textarea id="adresse" name="adresse" required></textarea>
+
+            <h2>Informations Tuteurs</h2>
+
+            <label for="tuteurNom">Nom :</label>
+            <input type="text" id="tuteurNom" name="tuteurNom" required>
+
+            <label for="tuteurPrenom">Prénom :</label>
+            <input type="text" id="tuteurPrenom" name="tuteurPrenom" required>
+
+            <label for="tuteurMetier">Métier :</label>
+            <input type="text" id="tuteurMetier" name="tuteurMetier" required>
+
+            <label for="tuteurEmail">Email :</label>
+            <input type="email" id="tuteurEmail" name="tuteurEmail" required>
+
+            <label for="tuteurTelephone">Téléphone :</label>
+            <input type="tel" id="tuteurTelephone" name="tuteurTelephone" required>
+
+            <h2>Informations Supplémentaires</h2>
+
+            <label for="antecedents">Avez-vous des antécédents médicaux importants que nous devrions connaître ?</label>
+            <select id="antecedents" name="antecedents" required>
+                <option value="oui">Oui</option>
+                <option value="non">Non</option>
+            </select>
+            <textarea id="antecedentsDetails" name="antecedentsDetails" placeholder="Si oui, précisez..." style="display: none;"></textarea>
+            <p id="antecedentsMessage"></p>
+
+            <label for="handicap">Avez-vous un handicap ?</label>
+            <select id="handicap" name="handicap" required>
+                <option value="oui">Oui</option>
+                <option value="non">Non</option>
+            </select>
+            <textarea id="handicapDetails" name="handicapDetails" placeholder="Si oui, précisez..." style="display: none;"></textarea>
+            <p id="handicapMessage"></p>
+
+            <label for="activites">Quelles activités souhaiteriez-vous voir organiser par le Bureau des étudiants ?</label>
+            <textarea id="activites" name="activites" required></textarea>
+            <p id="activitesMessage"></p>
+
+            <label for="activiteCommerciale">Avez-vous une activité commerciale à proposer à l’institut ?</label>
+            <select id="activiteCommerciale" name="activiteCommerciale" required>
+                <option value="oui">Oui</option>
+                <option value="non">Non</option>
+            </select>
+            <textarea id="activiteCommercialeDetails" name="activiteCommercialeDetails" placeholder="Si oui, précisez..." style="display: none;"></textarea>
+            <p id="activiteCommercialeMessage"></p>
+
+            <button type="submit">Soumettre</button>
+        </form>
+
+        <div class="message" id="confirmationMessage"></div>
+    </div>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("wuZVLZSPmA5k4DDE2");  // User ID de EmailJS
+        })();
+
+        // Messages dynamiques pour prénom, classe, activités et autres
+        document.getElementById("prenom").addEventListener("input", function() {
+            if (this.value) {
+                document.getElementById("prenomMessage").innerText = "Joli prénom 🤭";
+            } else {
+                document.getElementById("prenomMessage").innerText = "";
+            }
+        });
+
+        document.getElementById("classe").addEventListener("change", function() {
+            document.getElementById("classeMessage").innerText = "Bravo !";
+        });
+
+        document.getElementById("antecedents").addEventListener("change", function() {
+            const detailsField = document.getElementById("antecedentsDetails");
+            const message = document.getElementById("antecedentsMessage");
+
+            if (this.value === "oui") {
+                detailsField.style.display = "block";
+                message.innerText = "T'inquiètes pas, on est là pour t'aider, tu fais partie de la famille maintenant.";
+            } else {
+                detailsField.style.display = "none";
+                message.innerText = "";
+            }
+        });
+
+        document.getElementById("handicap").addEventListener("change", function() {
+            const detailsField = document.getElementById("handicapDetails");
+            const message = document.getElementById("handicapMessage");
+
+            if (this.value === "oui") {
+                detailsField.style.display = "block";
+                message.innerText = "Nous sommes là pour t'aider, si tu y mets du tien, ton handicap deviendra une force.";
+            } else {
+                detailsField.style.display = "none";
+                message.innerText = "";
+            }
+        });
+
+        document.getElementById("activites").addEventListener("input", function() {
+            document.getElementById("activitesMessage").innerText = "Ah ouais très intéressant ! Nous y réfléchirons, ton avis sera pris en compte 😉";
+        });
+
+        document.getElementById("activiteCommerciale").addEventListener("change", function() {
+            const detailsField = document.getElementById("activiteCommercialeDetails");
+            const message = document.getElementById("activiteCommercialeMessage");
+
+            if (this.value === "oui") {
+                detailsField.style.display = "block";
+                message.innerText = "Nous examinerons cela avec attention !";
+            } else {
+                detailsField.style.display = "none";
+                message.innerText = "";
+            }
+        });
+
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Empêcher le rechargement de la page
+
+            emailjs.sendForm("service_4x53erx", "template_ypktsba", this)
+                .then(function(response) {
+                    console.log("Succès", response);
+                    document.getElementById("confirmationMessage").innerText = "Le BDE te remercie pour ta coopération. À plus tard chers étudiants.";
+                }, function(error) {
+                    console.log("Erreur", error);
+                    document.getElementById("confirmationMessage").innerText = "Une erreur est survenue, veuillez réessayer plus tard.";
+                });
+        });
+    </script>
+
+</body>
+</html>
